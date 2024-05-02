@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1002281124968",
+    "project_id": "baby-7fbf2",
+    "storage_bucket": "baby-7fbf2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1002281124968:android:98e997ea44d0f4749e67dd",
+        "android_client_info": {
+          "package_name": "com.example.baby"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhrd0N07Ozn2sHkkuV8nySXiaMm-5v8BE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
