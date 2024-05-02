@@ -1,4 +1,3 @@
-
 import 'package:baby/firebase_options.dart';
 import 'package:baby/ui/navigation/main_navigation.dart';
 import 'package:firebase_core/firebase_core.dart';
