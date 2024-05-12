@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../ui/background_widget.dart';
 import '../../ui/theme/style_text_filed.dart';
 
+
 class RegisterScreenDI extends StatelessWidget {
   const RegisterScreenDI({super.key});
 
@@ -32,16 +33,17 @@ class RegisterScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 10),
-              const MyTextField(),
+              TextField(
+                controller: _modelWatch.controllerName,
+              ),
               MyText(text: 'Имя'),
               const SizedBox(height: 10),
-              const MyTextField(),
+              TextField(controller: _modelWatch.controllerEmail,),
               MyText(text: 'Электронная почта'),
-              const MyTextField(),
+              TextField(controller: _modelWatch.controllerPassword,),
               MyText(text: 'Пароль'),
               TextButton(
-                onPressed: () =>_modelRead.register(context),
-                child: const Text('Зарегистрироваться'),
+                onPressed: ()=>_modelWatch.signUp(context), child: const Text('Зарегистрироваться'),
               ),
             ],
           ),

@@ -12,40 +12,44 @@ class LoginScreenDI extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ChangeNotifierProvider(
         create: (context) => LoginScreenVM(),
-        child: const LoginScreen(),
+        child: LoginScreen(),
       );
 }
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     final _modelRead = context.read<LoginScreenVM>();
     final _modelWatch = context.watch<LoginScreenVM>();
     return BackgroundWidget(
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: const Center(child: Text('Привет!')),
+          title: const Center(
+            child: Text('Привет!'),
+          ),
+          actions: [
+            IconButton(onPressed: () {}, icon: const Icon(Icons.account_circle))
+          ],
         ),
         body: Padding(
           padding: const EdgeInsets.all(35),
           child: Column(
             children: [
               const SizedBox(height: 10),
-              MyTextField(controller: _modelWatch.emailUserController),
+              TextField(controller: _modelWatch.controllerEmaila),
               MyText(text: 'Электронная почта'),
               const SizedBox(height: 10),
-              MyTextField(controller: _modelWatch.passwordUserController),
+              TextField(controller: _modelWatch.controllerPassworda),
               MyText(text: 'пароль'),
               TextButton(
-                onPressed: () => _modelRead.enter(context),
+                onPressed: () => _modelRead.signIn(context),
                 child: const Text('Войти'),
               ),
               TextButton(
-                onPressed: () => _modelRead.register(context),
+                onPressed: () {},
                 child: const Text('Нет аккаута? Зарегистрируся.'),
               ),
               TextButton(

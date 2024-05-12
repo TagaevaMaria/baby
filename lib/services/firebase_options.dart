@@ -46,7 +46,7 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static  FirebaseOptions android = FirebaseOptions(
+  static  FirebaseOptions android = const FirebaseOptions(
     apiKey: 'AIzaSyBhrd0N07Ozn2sHkkuV8nySXiaMm-5v8BE',
     appId: '1:1002281124968:android:98e997ea44d0f4749e67dd',
     messagingSenderId: '1002281124968',
@@ -54,7 +54,7 @@ class DefaultFirebaseOptions {
     storageBucket: 'baby-7fbf2.appspot.com',
   );
 
-  static  FirebaseOptions ios = FirebaseOptions(
+  static  FirebaseOptions ios = const FirebaseOptions(
     apiKey: 'AIzaSyBqzFJ_Wmnx7vy_5kQHMOR8awnBmpXurPw',
     appId: '1:1002281124968:ios:c0e2fdf1bac99a729e67dd',
     messagingSenderId: '1002281124968',
@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
     iosBundleId: 'com.example.baby',
   );
 
-  static  FirebaseOptions macos = FirebaseOptions(
+  static  FirebaseOptions macos = const FirebaseOptions(
     apiKey: 'AIzaSyBqzFJ_Wmnx7vy_5kQHMOR8awnBmpXurPw',
     appId: '1:1002281124968:ios:7a8bb1a6b7575ec59e67dd',
     messagingSenderId: '1002281124968',

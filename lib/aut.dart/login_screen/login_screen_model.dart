@@ -1,40 +1,33 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../ui/navigation/main_navigation.dart';
+import '../auth.dart';
 
+class LoginScreenVM extends ChangeNotifier {
+  final FirebaseAuthService _auth = FirebaseAuthService();
 
-class LoginScreenVM extends ChangeNotifier{
+  /// контроллеры
 
+  final TextEditingController _controllerEmail = TextEditingController();
 
-  /// Навигация
-  ///
-  void enter(BuildContext context){
-    Navigator.pushNamed(context, MainNavigationRouteNames.mainScreen);
+  TextEditingController get controllerEmaila => _controllerEmail;
 
-  }
+  final TextEditingController _controllerPassword = TextEditingController();
 
-  void register(BuildContext context){
-    Navigator.pushNamed(context, MainNavigationRouteNames.registerScreenDI);
-    
-  }
+  TextEditingController get controllerPassworda => _controllerPassword;
 
+  /// метод регистрации
+  void signIn(BuildContext context) async {
+    String email = _controllerEmail.text;
+    String password = _controllerPassword.text;
 
-  final TextEditingController _emailController = TextEditingController();
-
-  TextEditingController get emailUserController {
-    return _emailController;
-  }
-
-  final TextEditingController _passwordController = TextEditingController();
-
-  TextEditingController get passwordUserController {
-    return _passwordController;
+    User? user = await _auth.signInWithEmailAndPassword(
+        email: email, password: password);
+    if (user != null) {
+      print('Пользователь успешно вошел');
+      Navigator.pushNamed(context, MainNavigationRouteNames.mainScreen);
+    } else
+      print('Произошла ошибка');
   }
 }
-
-
-
-
-
-
-

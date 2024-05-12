@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../aut.dart/register/register_screen.dart';
 import '../../aut.dart/login_screen/login_screen.dart';
+import '../../aut.dart/register/register_screen.dart';
 import '../../aut.dart/reset_password_screen.dart';
-import '../../aut.dart/verify_email_screen.dart';
+import '../../aut.dart/successfully_registered/successfully_registered_screen.dart';
 import '../../main_screen/notes/notes_widget.dart';
 import '../../main_screen/notes/notes_widget_form.dart';
 import '../../main_screen/profile_child/screen_profile_child.dart';
@@ -16,8 +16,7 @@ import '../../main_screen/screen_achievements.dart';
 import '../../main_screen/screen_photo/screen_photo.dart';
 
 class MainNavigationRouteNames {
-  static const loginScreenDI = '/';
-  static const mainScreen = '/mainScreen';
+  static const registerScreenDI = '/registerScreenDI';
   static const welcomScreen = '/welcomScreen';
   static const authorization = '/authorization';
   static const screenAchievements = '/screen_achievements';
@@ -34,14 +33,16 @@ class MainNavigationRouteNames {
   static const verifyEmailScreen = '/verifyEmailScreen';
   static const accountScreen = '/accountScreen';
   static const resetPassword = '/resetPassword';
-  static const registerScreenDI = '/registerScreenDI';
-
+  static const loginScreenDI = '/loginScreenDI';
+  static const mainScreen = '/mainScreen';
+  static const successfullyRegisteredScreen = '/successfullyRegisteredScreen';
 }
 
 
 class MainNavigation {
-  final initialRoute = MainNavigationRouteNames.loginScreenDI;
+  final initialRoute = MainNavigationRouteNames.registerScreenDI;
   final routes = <String, Widget Function(BuildContext)>{
+    MainNavigationRouteNames.registerScreenDI: (context) => const RegisterScreenDI(),
     MainNavigationRouteNames.mainScreen: (context) => const MainScreen(),
     MainNavigationRouteNames.screenAchievements: (context) =>
         const ScreenAchievements(),
@@ -57,12 +58,9 @@ class MainNavigation {
     MainNavigationRouteNames.addChild: (context) => const AddChild(),
     MainNavigationRouteNames.screenProfileChild: (context) =>
         const ScreenProfileChild(),
-    MainNavigationRouteNames.verifyEmailScreen: (context) =>
-        const VerifyEmailScreen(),
     MainNavigationRouteNames.resetPassword: (context) => const ResetPassword(),
-    MainNavigationRouteNames.accountScreen: (context) => const RegisterScreen(),
     MainNavigationRouteNames.loginScreenDI: (context) => const LoginScreenDI(),
-    MainNavigationRouteNames.registerScreenDI: (context) => const RegisterScreenDI(),
+    MainNavigationRouteNames.successfullyRegisteredScreen: (context) => const SuccessfullyRegisteredScreen(),
 
   };
 }
