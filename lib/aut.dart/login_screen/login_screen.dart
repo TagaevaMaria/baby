@@ -10,14 +10,15 @@ class LoginScreenDI extends StatelessWidget {
   const LoginScreenDI({super.key});
 
   @override
-  Widget build(BuildContext context) => ChangeNotifierProvider(
+  Widget build(BuildContext context) =>
+      ChangeNotifierProvider(
         create: (context) => LoginScreenVM(),
-        child: LoginScreen(),
+        child: const LoginScreen(),
       );
 }
 
 class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,29 +38,53 @@ class LoginScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(35),
           child: Column(
-            children: [
+              children: [
               const SizedBox(height: 10),
-              TextField(controller: _modelWatch.controllerEmaila),
-              MyText(text: 'Электронная почта'),
-              const SizedBox(height: 10),
-              TextField(controller: _modelWatch.controllerPassworda),
-              MyText(text: 'пароль'),
-              TextButton(
-                onPressed: () => _modelRead.signIn(context),
-                child: const Text('Войти'),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: const Text('Нет аккаута? Зарегистрируся.'),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: const Text('Сбросить пароль'),
-              )
-            ],
+          TextField(
+              controller: _modelWatch.controllerEmaila,
+              style: const TextStyle(fontSize: 20, color: Colors.indigo),
+              textAlign: TextAlign.center,
+              decoration: const InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(50),
+                  ),
+                ),
+              )),
+          MyText(text: 'Электронная почта'),
+          const SizedBox(height: 10),
+          TextField(
+              controller: _modelWatch.controllerPassworda,
+              style: const TextStyle(fontSize: 20, color: Colors.indigo),
+              textAlign: TextAlign.center,
+              decoration: const InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(50),
+                  ),
+                ),
+              )),
+          MyText(text: 'пароль'),
+          TextButton(
+            onPressed: () => _modelRead.signIn(context),
+            child: const Text('Войти'),
           ),
+          TextButton(
+              onPressed: () => _modelRead.register(context),
+              child: const Text('Нет аккаута? Зарегистрируйся.'),
         ),
+        TextButton(
+          onPressed: () {},
+          child: const Text('Сбросить пароль'),
+        )
+        ],
       ),
+    ),)
+    ,
     );
   }
 }

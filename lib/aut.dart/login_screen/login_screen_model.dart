@@ -5,10 +5,19 @@ import '../../ui/navigation/main_navigation.dart';
 import '../auth.dart';
 
 class LoginScreenVM extends ChangeNotifier {
+
   final FirebaseAuthService _auth = FirebaseAuthService();
 
-  /// контроллеры
+  ///методы навигации
+  void register(BuildContext context){
+    Navigator.pushNamed(context, MainNavigationRouteNames.registerScreenDI);
+  }
 
+
+
+
+
+  /// контроллеры
   final TextEditingController _controllerEmail = TextEditingController();
 
   TextEditingController get controllerEmaila => _controllerEmail;

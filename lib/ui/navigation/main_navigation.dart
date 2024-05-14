@@ -16,9 +16,7 @@ import '../../main_screen/screen_achievements.dart';
 import '../../main_screen/screen_photo/screen_photo.dart';
 
 class MainNavigationRouteNames {
-  static const registerScreenDI = '/registerScreenDI';
-  static const welcomScreen = '/welcomScreen';
-  static const authorization = '/authorization';
+  static const loginScreenDI = '/';
   static const screenAchievements = '/screen_achievements';
   static const screenDoctors = '/screen_doctors';
   static const notesWidget = '/notes_widget';
@@ -30,17 +28,16 @@ class MainNavigationRouteNames {
   static const photoByMons = '/photo_by_mons';
   static const addChild = '/add_child';
   static const screenProfileChild = '/screenProfileChild';
-  static const verifyEmailScreen = '/verifyEmailScreen';
-  static const accountScreen = '/accountScreen';
   static const resetPassword = '/resetPassword';
-  static const loginScreenDI = '/loginScreenDI';
   static const mainScreen = '/mainScreen';
   static const successfullyRegisteredScreen = '/successfullyRegisteredScreen';
+  static const registerScreenDI = '/registerScreenDI';
+
 }
 
 
 class MainNavigation {
-  final initialRoute = MainNavigationRouteNames.registerScreenDI;
+  final initialRoute = MainNavigationRouteNames.loginScreenDI;
   final routes = <String, Widget Function(BuildContext)>{
     MainNavigationRouteNames.registerScreenDI: (context) => const RegisterScreenDI(),
     MainNavigationRouteNames.mainScreen: (context) => const MainScreen(),

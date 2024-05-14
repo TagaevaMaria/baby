@@ -14,20 +14,22 @@ class SuccessfullyRegisteredScreen extends StatelessWidget {
             appBar: AppBar(
               title: const Text('Добро пожаловать!'),
             ),
-            body: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text('Вы успешно зарегистированы!'),
-                TextButton(
-                  onPressed: () {
-                    FirebaseAuth.instance.signOut();
-                    Navigator.pushNamed(
-                        context, MainNavigationRouteNames.loginScreenDI);
-                  },
-                  child: const Text('Войдите в приложение'),
-                )
-              ],
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text('Вы успешно зарегистированы!'),
+                  TextButton(
+                    onPressed: () {
+                      FirebaseAuth.instance.signOut();
+                      Navigator.pushNamed(
+                          context, MainNavigationRouteNames.loginScreenDI);
+                    },
+                    child: const Text('Войдите в приложение'),
+                  )
+                ],
+              ),
             )));
   }
 }

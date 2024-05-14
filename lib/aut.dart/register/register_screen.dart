@@ -34,13 +34,43 @@ class RegisterScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 10),
               TextField(
-                controller: _modelWatch.controllerName,
+                controller: _modelWatch.controllerName,style: const TextStyle(fontSize: 20, color: Colors.indigo),
+                  textAlign: TextAlign.center,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(50),
+                      ),
+                    ),
+                  )
               ),
               MyText(text: 'Имя'),
               const SizedBox(height: 10),
-              TextField(controller: _modelWatch.controllerEmail,),
+              TextField(controller: _modelWatch.controllerEmail,style: const TextStyle(fontSize: 20, color: Colors.indigo),
+                  textAlign: TextAlign.center,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(50),
+                      ),
+                    ),
+                  )),
               MyText(text: 'Электронная почта'),
-              TextField(controller: _modelWatch.controllerPassword,),
+              TextField(controller: _modelWatch.controllerPassword,style: const TextStyle(fontSize: 20, color: Colors.indigo),
+                  textAlign: TextAlign.center,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(50),
+                      ),
+                    ),
+                  )),
               MyText(text: 'Пароль'),
               TextButton(
                 onPressed: ()=>_modelWatch.signUp(context), child: const Text('Зарегистрироваться'),
