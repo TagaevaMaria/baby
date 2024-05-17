@@ -1,5 +1,5 @@
-import 'package:baby/global/toast.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import '../../ui/background_widget.dart';
 import '../../ui/theme/style_text_filed.dart';
@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.all(35),
-          child: Column(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 10),
               TextField(
@@ -77,6 +77,17 @@ class LoginScreen extends StatelessWidget {
                     ? const CircularProgressIndicator(color: Colors.white)
                     : const Text('Войти'),
               ),
+              Center(
+                child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed:(){_modelRead.signInWithGoogle(context);} ,
+                         child: const Text('Войти c помощью google'),
+                    ),    const Icon(FontAwesomeIcons.google),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 5),
               TextButton(
                   onPressed: () => _modelRead.register(context),
                   child: const Text('Нет аккаута? Зарегистрируйтесь.')),
