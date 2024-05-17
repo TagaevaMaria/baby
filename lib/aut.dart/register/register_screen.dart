@@ -73,7 +73,8 @@ class RegisterScreen extends StatelessWidget {
                   )),
               MyText(text: 'Пароль'),
               TextButton(
-                onPressed: ()=>_modelWatch.signUp(context), child: const Text('Зарегистрироваться'),
+                onPressed: ()=>_modelWatch.signUp(context), child: _modelRead.isSigning ? const CircularProgressIndicator(color: Colors.white) :
+              Text('Зарегистрироваться'),
               ),
             ],
           ),

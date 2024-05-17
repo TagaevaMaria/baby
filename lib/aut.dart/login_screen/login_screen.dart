@@ -1,3 +1,4 @@
+import 'package:baby/global/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../ui/background_widget.dart';
@@ -10,8 +11,7 @@ class LoginScreenDI extends StatelessWidget {
   const LoginScreenDI({super.key});
 
   @override
-  Widget build(BuildContext context) =>
-      ChangeNotifierProvider(
+  Widget build(BuildContext context) => ChangeNotifierProvider(
         create: (context) => LoginScreenVM(),
         child: const LoginScreen(),
       );
@@ -38,53 +38,56 @@ class LoginScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(35),
           child: Column(
-              children: [
+            children: [
               const SizedBox(height: 10),
-          TextField(
-              controller: _modelWatch.controllerEmaila,
-              style: const TextStyle(fontSize: 20, color: Colors.indigo),
-              textAlign: TextAlign.center,
-              decoration: const InputDecoration(
-                filled: true,
-                fillColor: Colors.white,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(50),
-                  ),
-                ),
-              )),
-          MyText(text: 'Электронная почта'),
-          const SizedBox(height: 10),
-          TextField(
-              controller: _modelWatch.controllerPassworda,
-              style: const TextStyle(fontSize: 20, color: Colors.indigo),
-              textAlign: TextAlign.center,
-              decoration: const InputDecoration(
-                filled: true,
-                fillColor: Colors.white,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(50),
-                  ),
-                ),
-              )),
-          MyText(text: 'пароль'),
-          TextButton(
-            onPressed: () => _modelRead.signIn(context),
-            child: const Text('Войти'),
+              TextField(
+                  controller: _modelWatch.controllerEmaila,
+                  style: const TextStyle(fontSize: 20, color: Colors.indigo),
+                  textAlign: TextAlign.center,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(50),
+                      ),
+                    ),
+                  )),
+              MyText(text: 'Электронная почта'),
+              const SizedBox(height: 10),
+              TextField(
+                  controller: _modelWatch.controllerPassworda,
+                  style: const TextStyle(fontSize: 20, color: Colors.indigo),
+                  textAlign: TextAlign.center,
+                  decoration: const InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(50),
+                      ),
+                    ),
+                  )),
+              MyText(text: 'пароль'),
+              TextButton(
+                onPressed: () {
+                  _modelWatch.enter(context);
+                },
+                child: _modelWatch.isSigning
+                    ? const CircularProgressIndicator(color: Colors.white)
+                    : const Text('Войти'),
+              ),
+              TextButton(
+                  onPressed: () => _modelRead.register(context),
+                  child: const Text('Нет аккаута? Зарегистрируйтесь.')),
+              TextButton(
+                onPressed: () {},
+                child: const Text('Сбросить пароль'),
+              )
+            ],
           ),
-          TextButton(
-              onPressed: () => _modelRead.register(context),
-              child: const Text('Нет аккаута? Зарегистрируйся.'),
         ),
-        TextButton(
-          onPressed: () {},
-          child: const Text('Сбросить пароль'),
-        )
-        ],
       ),
-    ),)
-    ,
     );
   }
 }

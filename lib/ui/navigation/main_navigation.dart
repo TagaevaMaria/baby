@@ -30,7 +30,7 @@ class MainNavigationRouteNames {
   static const screenProfileChild = '/screenProfileChild';
   static const resetPassword = '/resetPassword';
   static const mainScreen = '/mainScreen';
-  static const successfullyRegisteredScreen = '/successfullyRegisteredScreen';
+  static const successfullyRegisteredScreenDI = '/successfullyRegisteredScreenDI';
   static const registerScreenDI = '/registerScreenDI';
 
 }
@@ -57,7 +57,7 @@ class MainNavigation {
         const ScreenProfileChild(),
     MainNavigationRouteNames.resetPassword: (context) => const ResetPassword(),
     MainNavigationRouteNames.loginScreenDI: (context) => const LoginScreenDI(),
-    MainNavigationRouteNames.successfullyRegisteredScreen: (context) => const SuccessfullyRegisteredScreen(),
+    MainNavigationRouteNames.successfullyRegisteredScreenDI: (context) => const SuccessfullyRegisteredScreenDI(),
 
   };
 }

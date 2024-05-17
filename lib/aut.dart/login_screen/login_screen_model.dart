@@ -1,21 +1,42 @@
+import 'package:baby/global/toast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../ui/navigation/main_navigation.dart';
-import '../auth.dart';
+import '../../services/auth.dart';
 
 class LoginScreenVM extends ChangeNotifier {
 
+  /// инициализация Firebase
   final FirebaseAuthService _auth = FirebaseAuthService();
 
+
+  ///переменная которая показывает или не показывает CircularProgressIndicator
+  bool _isSigning = false;
+  bool get isSigning => _isSigning;
+
   ///методы навигации
-  void register(BuildContext context){
-    Navigator.pushNamed(context, MainNavigationRouteNames.registerScreenDI);
+  Future<void> enter(BuildContext context) async {
+
+    _isSigning = true;
+    notifyListeners();
+    String email = _controllerEmail.text;
+    String password = _controllerPassword.text;
+
+    User? user = await _auth.signInWithEmailAndPassword(
+        email: email, password: password);
+    _isSigning = false;
+    notifyListeners();
+
+
+    if (user != null) {
+      showToast(message: 'Пользователь успешно вошел');
+      Navigator.pushNamed(context, MainNavigationRouteNames.mainScreen);
+    } else {
+      showToast(message: 'Произошла ошибка');
+    }
+
   }
-
-
-
-
 
   /// контроллеры
   final TextEditingController _controllerEmail = TextEditingController();
@@ -27,16 +48,7 @@ class LoginScreenVM extends ChangeNotifier {
   TextEditingController get controllerPassworda => _controllerPassword;
 
   /// метод регистрации
-  void signIn(BuildContext context) async {
-    String email = _controllerEmail.text;
-    String password = _controllerPassword.text;
-
-    User? user = await _auth.signInWithEmailAndPassword(
-        email: email, password: password);
-    if (user != null) {
-      print('Пользователь успешно вошел');
-      Navigator.pushNamed(context, MainNavigationRouteNames.mainScreen);
-    } else
-      print('Произошла ошибка');
+  void register(BuildContext context) async {
+    Navigator.pushNamed(context, MainNavigationRouteNames.registerScreenDI);
   }
 }
