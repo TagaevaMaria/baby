@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../ui/navigation/main_navigation.dart';
 
 class MainScreenModel extends ChangeNotifier {
-
-
 
   /// функции для навигаций
   void screenAchievements(BuildContext context) {
@@ -34,16 +31,12 @@ class MainScreenModel extends ChangeNotifier {
   }
 
   void screenNotes(BuildContext context) {
-    Navigator.of(context).pushNamed(MainNavigationRouteNames.notesWidget);
+    Navigator.of(context).pushNamed(MainNavigationRouteNames.notesScreenDI);
   }
 
   void screenAddChild(BuildContext context) {
     Navigator.of(context).pushNamed(MainNavigationRouteNames.addChild);
   }
-
-
-
-
 
 }
 

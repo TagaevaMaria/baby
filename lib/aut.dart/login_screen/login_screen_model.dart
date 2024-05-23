@@ -27,7 +27,7 @@ class LoginScreenVM extends ChangeNotifier {
     notifyListeners();
 
     if (user != null) {
-      showToast(message: 'Пользователь успешно вошел');
+      showToast(message: 'Вы успешно вошли!');
       Navigator.pushNamed(context, MainNavigationRouteNames.mainScreen);
     } else {
       showToast(message: 'Произошла ошибка');
@@ -35,11 +35,11 @@ class LoginScreenVM extends ChangeNotifier {
   }
 
   /// контроллеры
-  final TextEditingController _controllerEmail = TextEditingController();
+  final TextEditingController _controllerEmail = TextEditingController(text: 'vcebudet5.ok@mail.ru');
 
   TextEditingController get controllerEmaila => _controllerEmail;
 
-  final TextEditingController _controllerPassword = TextEditingController();
+  final TextEditingController _controllerPassword = TextEditingController(text: '123456');
 
   TextEditingController get controllerPassworda => _controllerPassword;
 
