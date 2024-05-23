@@ -46,6 +46,7 @@ class NewNotesScreen extends StatelessWidget {
           onChanged: (value) => _modelRead.newNotes=value,
         ),
       ),
+
       backgroundColor: Colors.transparent,
     ));
   }
