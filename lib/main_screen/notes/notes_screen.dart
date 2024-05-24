@@ -83,8 +83,9 @@ class _RowNotesListWidget extends StatelessWidget {
         ],
       ),
       child: ListTile(
-        title: Text(notes.nowNotes),
+        title: Text(notes.nowNotes, maxLines:1),
         trailing: const Icon(Icons.chevron_right),
+        onTap: ()=> _model.showNotes(context, indexInList),
       ),
     );
   }

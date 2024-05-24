@@ -1,45 +1,52 @@
-
 import 'package:baby/domin/entity/notes.dart';
 import 'package:baby/ui/navigation/main_navigation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 
-class NotesScreenVM extends ChangeNotifier{
-
+class NotesScreenVM extends ChangeNotifier {
   var _newNotes = <Note>[];
- List <Note> get newNotes => _newNotes.toList();
-  NotesScreenVM(){
+
+  List<Note> get newNotes => _newNotes.toList();
+
+  NotesScreenVM() {
     _setup();
   }
 
-  void createNewNotes(BuildContext context){
+  ///навигация
+
+  void createNewNotes(BuildContext context) {
     Navigator.pushNamed(context, MainNavigationRouteNames.newNoteScreenDI);
   }
 
-  void _setup() async{
+  void showNotes(BuildContext context, int notesIndex) async {
+    if (!Hive.isAdapterRegistered(1)) {
+      Hive.registerAdapter(NoteAdapter());
+    }
+    final box = await Hive.openBox<Note>('now_notes');
+   final notesKey =  box.keyAt(notesIndex);
+   Navigator.of(context).pushNamed(MainNavigationRouteNames.showNotesDI, arguments: notesKey);
+  }
+
+  void _setup() async {
     if (!Hive.isAdapterRegistered(1)) {
       Hive.registerAdapter(NoteAdapter());
     }
     final box = await Hive.openBox<Note>('now_notes');
     _newNotes = box.values.toList();
     notifyListeners();
-    box.listenable().addListener((){
+    box.listenable().addListener(() {
       _newNotes = box.values.toList();
       notifyListeners();
     });
-
   }
+
   ///удаление заметки
-void deleteNotes(int notesIndex) async{
-  if (!Hive.isAdapterRegistered(1)) {
-    Hive.registerAdapter(NoteAdapter());
+  void deleteNotes(int notesIndex) async {
+    if (!Hive.isAdapterRegistered(1)) {
+      Hive.registerAdapter(NoteAdapter());
+    }
+    final box = await Hive.openBox<Note>('now_notes');
+    await box.deleteAt(notesIndex);
   }
-  final box = await Hive.openBox<Note>('now_notes');
- await box.deleteAt(notesIndex);
-
-}
-
-
-
 }

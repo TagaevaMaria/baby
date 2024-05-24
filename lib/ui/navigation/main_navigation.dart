@@ -5,6 +5,7 @@ import '../../aut.dart/reset_password_screen.dart';
 import '../../aut.dart/successfully_registered/successfully_registered_screen.dart';
 import '../../main_screen/notes/new_notes_screen.dart';
 import '../../main_screen/notes/notes_screen.dart';
+import '../../main_screen/notes/show_notes.dart';
 import '../../main_screen/profile_child/screen_profile_child.dart';
 import '../../main_screen/screenHeightWeight/indicator_calendar_weight.dart';
 import '../../main_screen/screenHeightWeight/screen_height_weight.dart';
@@ -32,6 +33,10 @@ class MainNavigationRouteNames {
   static const successfullyRegisteredScreenDI = '/successfully_registered_screen_DI';
   static const registerScreenDI = '/register_screen_DI';
   static const newNoteScreenDI = '/new_note_screen_DI';
+  static const showNotesDI = '/show_notes_DI';
+
+
+
 
 }
 
@@ -58,6 +63,7 @@ class MainNavigation {
     MainNavigationRouteNames.loginScreenDI: (context) => const LoginScreenDI(),
     MainNavigationRouteNames.successfullyRegisteredScreenDI: (context) => const SuccessfullyRegisteredScreenDI(),
     MainNavigationRouteNames.newNoteScreenDI: (context) => const NewNoteScreenDI(),
+    MainNavigationRouteNames.showNotesDI: (context) => const ShowNotesDI(),
 
   };
 }
