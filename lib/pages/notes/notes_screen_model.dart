@@ -19,13 +19,8 @@ class NotesScreenVM extends ChangeNotifier {
     Navigator.pushNamed(context, MainNavigationRouteNames.newNoteScreenDI);
   }
 
-  void showNotes(BuildContext context, int notesIndex) async {
-    if (!Hive.isAdapterRegistered(1)) {
-      Hive.registerAdapter(NoteAdapter());
-    }
-    final box = await Hive.openBox<Note>('now_notes');
-   final notesKey =  box.keyAt(notesIndex);
-   Navigator.of(context).pushNamed(MainNavigationRouteNames.showNotesDI, arguments: notesKey);
+  void showNotes(BuildContext context, Note note) async {
+   Navigator.of(context).pushNamed(MainNavigationRouteNames.showNotesDI, arguments: note);
   }
 
   void _setup() async {

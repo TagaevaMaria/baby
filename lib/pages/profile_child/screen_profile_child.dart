@@ -1,5 +1,5 @@
 
-import 'package:baby/main_screen/profile_child/screen_profile_child_model.dart';
+import 'package:baby/pages/profile_child/screen_profile_child_model.dart';
 import 'package:flutter/material.dart';
 
 

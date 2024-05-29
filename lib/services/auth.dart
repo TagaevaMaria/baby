@@ -1,15 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import '../domin/global/toast.dart';
 
-import '../global/toast.dart';
+
 
 class FirebaseAuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   User? get currentUser => _firebaseAuth.currentUser;
-
-
-
 
   ///Зарегистрируйтесь с помощью электронной почты и пароля
   Future<User?> signUpWithEmailAndPassword({
