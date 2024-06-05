@@ -1,20 +1,21 @@
+import 'package:baby/screens%20registration/add_child/add_child.dart';
+import 'package:baby/ui/pages/aut.dart/login_screen/login_screen.dart';
+import 'package:baby/ui/pages/aut.dart/register/register_screen.dart';
+import 'package:baby/ui/pages/aut.dart/reset_password_screen.dart';
+import 'package:baby/ui/pages/aut.dart/successfully_registered/successfully_registered_screen.dart';
+import 'package:baby/ui/pages/main_screen.dart';
+import 'package:baby/ui/pages/notes/new_notes_screen.dart';
+import 'package:baby/ui/pages/notes/notes_screen.dart';
+import 'package:baby/ui/pages/notes/show_notes.dart';
+import 'package:baby/ui/pages/profile_child/screen_profile_child.dart';
+import 'package:baby/ui/pages/screenHeightWeight/indicator_calendar_weight.dart';
+import 'package:baby/ui/pages/screenHeightWeight/screen_height_weight.dart';
+import 'package:baby/ui/pages/screen_achievements.dart';
+import 'package:baby/ui/pages/screen_allergy/screen_allergy.dart';
+import 'package:baby/ui/pages/screen_doctors/screen_doctors.dart';
+import 'package:baby/ui/pages/screen_photo/screen_photo.dart';
 import 'package:flutter/material.dart';
-import '../../pages/aut.dart/login_screen/login_screen.dart';
-import '../../pages/aut.dart/register/register_screen.dart';
-import '../../pages/aut.dart/reset_password_screen.dart';
-import '../../pages/aut.dart/successfully_registered/successfully_registered_screen.dart';
-import '../../pages/notes/new_notes_screen.dart';
-import '../../pages/notes/notes_screen.dart';
-import '../../pages/notes/show_notes.dart';
-import '../../pages/profile_child/screen_profile_child.dart';
-import '../../pages/screenHeightWeight/indicator_calendar_weight.dart';
-import '../../pages/screenHeightWeight/screen_height_weight.dart';
-import '../../pages/screen_allergy/screen_allergy.dart';
-import '../../pages/screen_doctors/screen_doctors.dart';
-import '../../screens registration/add_child/add_child.dart';
-import '../../pages/main_screen.dart';
-import '../../pages/screen_achievements.dart';
-import '../../pages/screen_photo/screen_photo.dart';
+
 
 class MainNavigationRouteNames {
   static const loginScreenDI = '/';
