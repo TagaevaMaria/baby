@@ -5,8 +5,8 @@ part 'notes.g.dart';
 @HiveType(typeId: 1)
 class Note {
   @HiveField(0)
-  String name;
+  String nowNotes;
   Note({
-    required this.name,
+    required this.nowNotes,
   });
 }

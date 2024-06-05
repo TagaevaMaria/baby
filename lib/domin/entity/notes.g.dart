@@ -17,7 +17,7 @@ class NoteAdapter extends TypeAdapter<Note> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Note(
-      name: fields[0] as String,
+      nowNotes: fields[0] as String,
     );
   }
 
@@ -26,7 +26,7 @@ class NoteAdapter extends TypeAdapter<Note> {
     writer
       ..writeByte(1)
       ..writeByte(0)
-      ..write(obj.name);
+      ..write(obj.nowNotes);
   }
 
   @override
