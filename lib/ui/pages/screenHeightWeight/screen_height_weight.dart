@@ -1,9 +1,6 @@
-import 'package:baby/ui/background_widget.dart';
 import 'package:baby/ui/navigation/main_navigation.dart';
 import 'package:flutter/material.dart';
-
-
-
+import '../../../library/scaffold_manager/scaffold_manager.dart';
 
 class ScreenHeightWeight extends StatefulWidget {
   const ScreenHeightWeight({Key? key}) : super(key: key);
@@ -15,7 +12,7 @@ class ScreenHeightWeight extends StatefulWidget {
 class _ScrenHeightWeightState extends State<ScreenHeightWeight> {
   @override
   Widget build(BuildContext context) {
-    return BackgroundWidget(
+    return ScaffoldManager(
         child: Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(

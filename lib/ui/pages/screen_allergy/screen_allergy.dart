@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import '../../background_widget.dart';
+import '../../../library/scaffold_manager/scaffold_manager.dart';
 import 'calendar_allergy.dart';
 import 'event.dart';
 
@@ -37,7 +37,7 @@ class _ScreenAllergyState extends State<ScreenAllergy> {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundWidget(
+    return ScaffoldManager(
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(

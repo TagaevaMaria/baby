@@ -1,4 +1,4 @@
-import 'package:baby/ui/background_widget.dart';
+import 'package:baby/library/scaffold_manager/scaffold_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../navigation/main_navigation.dart';
@@ -24,7 +24,7 @@ class NotesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final _modelRead = context.read<NotesScreenVM>();
     final _modelWatch = context.watch<NotesScreenVM>();
-    return BackgroundWidget(
+    return ScaffoldManager(
         child: Scaffold(
             appBar: AppBar(
               title: const Text('Заметки'),

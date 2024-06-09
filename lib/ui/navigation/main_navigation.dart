@@ -3,7 +3,7 @@ import 'package:baby/ui/pages/aut.dart/login_screen/login_screen.dart';
 import 'package:baby/ui/pages/aut.dart/register/register_screen.dart';
 import 'package:baby/ui/pages/aut.dart/reset_password_screen.dart';
 import 'package:baby/ui/pages/aut.dart/successfully_registered/successfully_registered_screen.dart';
-import 'package:baby/ui/pages/main_screen.dart';
+import 'package:baby/ui/pages/main_screen/main_screen.dart';
 import 'package:baby/ui/pages/notes/new_notes_screen.dart';
 import 'package:baby/ui/pages/notes/notes_screen.dart';
 import 'package:baby/ui/pages/notes/show_notes.dart';
@@ -15,6 +15,9 @@ import 'package:baby/ui/pages/screen_allergy/screen_allergy.dart';
 import 'package:baby/ui/pages/screen_doctors/screen_doctors.dart';
 import 'package:baby/ui/pages/screen_photo/screen_photo.dart';
 import 'package:flutter/material.dart';
+
+import '../pages/proverka.dart';
+
 
 
 class MainNavigationRouteNames {
@@ -35,6 +38,7 @@ class MainNavigationRouteNames {
   static const registerScreenDI = '/register_screen_DI';
   static const newNoteScreenDI = '/new_note_screen_DI';
   static const showNotesDI = '/show_notes_DI';
+  static const proverka = '/proverka';
 }
 
 
@@ -61,6 +65,7 @@ class MainNavigation {
     MainNavigationRouteNames.successfullyRegisteredScreenDI: (context) => const SuccessfullyRegisteredScreenDI(),
     MainNavigationRouteNames.newNoteScreenDI: (context) => const NewNoteScreenDI(),
     MainNavigationRouteNames.showNotesDI: (context) => const ShowNotesDI(),
+    MainNavigationRouteNames.proverka: (context) => const Proverka(),
 
   };
 }

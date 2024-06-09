@@ -1,8 +1,8 @@
-import 'package:baby/ui/background_widget.dart';
+import 'package:baby/library/scaffold_manager/scaffold_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'new_notes_screen_model.dart';
+
 
 class NewNoteScreenDI extends StatelessWidget {
   const NewNoteScreenDI({super.key});
@@ -10,7 +10,7 @@ class NewNoteScreenDI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => NewNotesScreenVM(), child: NewNotesScreen());
+        create: (context) => NewNotesScreenVM(), child: const NewNotesScreen());
   }
 }
 
@@ -21,7 +21,7 @@ class NewNotesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final _modelRead = context.read<NewNotesScreenVM>();
     final _modelWatch = context.watch<NewNotesScreenVM>();
-    return BackgroundWidget(
+    return ScaffoldManager(
         child: Scaffold(
       appBar: AppBar(
         title: const Text('Заметки'),

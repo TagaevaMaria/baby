@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../background_widget.dart';
+import '../../../library/scaffold_manager/scaffold_manager.dart';
 import '../../navigation/main_navigation.dart';
-
-
 
 class ScreenPhotoBody extends StatelessWidget {
   const ScreenPhotoBody({super.key});
@@ -10,20 +8,20 @@ class ScreenPhotoBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> _buttons = [
-      'image/image_fhoto_age/one.png',
-      'image/image_fhoto_age/two.png',
-      'image/image_fhoto_age/three.png',
-      'image/image_fhoto_age/four.png',
-      'image/image_fhoto_age/five.png',
-      'image/image_fhoto_age/six.png',
-      'image/image_fhoto_age/seven.png',
-      'image/image_fhoto_age/eight.png',
-      'image/image_fhoto_age/nine.png',
-      'image/image_fhoto_age/ten.png',
-      'image/image_fhoto_age/eleven.png',
-      'image/image_fhoto_age/twelve.png',
+      'assets/image_photo_age/one.png',
+      'assets/image_photo_age/two.png',
+      'assets/image_photo_age/three.png',
+      'assets/image_photo_age/four.png',
+      'assets/image_photo_age/five.png',
+      'assets/image_photo_age/six.png',
+      'assets/image_photo_age/seven.png',
+      'assets/image_photo_age/eight.png',
+      'assets/image_photo_age/nine.png',
+      'assets/image_photo_age/ten.png',
+      'assets/image_photo_age/eleven.png',
+      'assets/image_photo_age/twelve.png',
     ];
-    return  BackgroundWidget(
+    return ScaffoldManager(
       child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
@@ -44,9 +42,11 @@ class ScreenPhotoBody extends StatelessWidget {
               itemCount: _buttons.length,
               itemBuilder: (context, index) {
                 return TextButton(
-                  onPressed: () => Navigator.of(context)
-                      .pushNamed(MainNavigationRouteNames.photoByMons, arguments: (index + 1)),
-                  child: Image.asset(_buttons[index],
+                  onPressed: () => Navigator.of(context).pushNamed(
+                      MainNavigationRouteNames.photoByMons,
+                      arguments: (index + 1)),
+                  child: Image.asset(
+                    _buttons[index],
                     width: 100,
                     height: 100,
                   ),
@@ -57,7 +57,3 @@ class ScreenPhotoBody extends StatelessWidget {
     );
   }
 }
-
-
-
-

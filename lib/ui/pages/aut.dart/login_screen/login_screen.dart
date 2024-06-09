@@ -1,7 +1,9 @@
+import 'package:baby/library/scaffold_manager/scaffold_manager.dart';
+import 'package:baby/ui/navigation/main_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import '../../../background_widget.dart';
+
 import '../../../theme/style_text_filed.dart';
 import 'login_screen_model.dart';
 
@@ -24,7 +26,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final _modelRead = context.read<LoginScreenVM>();
     final _modelWatch = context.watch<LoginScreenVM>();
-    return BackgroundWidget(
+    return ScaffoldManager(
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -35,9 +37,11 @@ class LoginScreen extends StatelessWidget {
             IconButton(onPressed: () {}, icon: const Icon(Icons.account_circle))
           ],
         ),
+
         body: Padding(
           padding: const EdgeInsets.all(35),
-          child: Column(mainAxisAlignment: MainAxisAlignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 10),
               TextField(
@@ -78,12 +82,16 @@ class LoginScreen extends StatelessWidget {
                     : const Text('Войти'),
               ),
               Center(
-                child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                      onPressed:(){_modelRead.signInWithGoogle(context);} ,
-                         child: const Text('Войти c помощью google'),
-                    ),    const Icon(FontAwesomeIcons.google),
+                      onPressed: () {
+                        _modelRead.signInWithGoogle(context);
+                      },
+                      child: const Text('Войти c помощью google'),
+                    ),
+                    const Icon(FontAwesomeIcons.google),
                   ],
                 ),
               ),
@@ -92,7 +100,7 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () => _modelRead.register(context),
                   child: const Text('Нет аккаута? Зарегистрируйтесь.')),
               TextButton(
-                onPressed: () {},
+                onPressed: () => _modelRead.proverka(context),
                 child: const Text('Сбросить пароль'),
               )
             ],

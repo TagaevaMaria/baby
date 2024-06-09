@@ -1,11 +1,8 @@
+import 'package:baby/library/scaffold_manager/scaffold_manager.dart';
 import 'package:baby/ui/pages/aut.dart/register/register_screen_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../../background_widget.dart';
 import '../../../theme/style_text_filed.dart';
-
-
 
 
 class RegisterScreenDI extends StatelessWidget {
@@ -25,7 +22,7 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final _modelRead = context.read<RegisterScreenVM>();
     final _modelWatch = context.watch<RegisterScreenVM>();
-    return BackgroundWidget(
+    return ScaffoldManager(
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Зарегистрируйтесь'),

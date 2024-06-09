@@ -1,11 +1,7 @@
 import 'package:baby/ui/pages/profile_child/screen_profile_child_model.dart';
 import 'package:flutter/material.dart';
 
-import '../../background_widget.dart';
-
-
-
-
+import '../../../library/scaffold_manager/scaffold_manager.dart';
 
 class ScreenProfileChild extends StatefulWidget {
   const ScreenProfileChild({super.key});
@@ -30,7 +26,7 @@ class ScreenProfileChildBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundWidget(
+    return ScaffoldManager(
       child: Scaffold(
           backgroundColor: Colors.transparent,
           resizeToAvoidBottomInset: false,

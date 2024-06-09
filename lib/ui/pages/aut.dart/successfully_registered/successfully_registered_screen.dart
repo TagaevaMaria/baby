@@ -1,4 +1,4 @@
-import 'package:baby/ui/background_widget.dart';
+import 'package:baby/library/scaffold_manager/scaffold_manager.dart';
 import 'package:baby/ui/pages/aut.dart/successfully_registered/successfully_registered_screen_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +21,7 @@ class SuccessfullyRegisteredScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final _modelRead = context.read<SuccessfullyRegisteredScreenVM>();
     final _modelWatch = context.watch<SuccessfullyRegisteredScreenVM>();
-    return BackgroundWidget(
+    return ScaffoldManager(
         child: Scaffold(
             backgroundColor: Colors.transparent,
             appBar: AppBar(

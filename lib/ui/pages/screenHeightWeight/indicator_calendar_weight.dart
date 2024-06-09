@@ -1,7 +1,7 @@
-import 'package:baby/ui/background_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import '../../../library/scaffold_manager/scaffold_manager.dart';
 import '../screen_allergy/calendar_allergy.dart';
 
 class IndicatorCalendarWeight extends StatefulWidget {
@@ -38,7 +38,7 @@ class IndicatorCalendarState extends State<IndicatorCalendarWeight> {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundWidget(
+    return ScaffoldManager(
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(165, 218, 249, 1),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../ui/background_widget.dart';
+import '../../library/scaffold_manager/scaffold_manager.dart';
 import '../../ui/theme/style_text_filed.dart';
 import 'add_child_model.dart';
 
@@ -27,10 +27,8 @@ class AddChildScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _model = AddChildModelProvider.watch(context)?.model;
-    return BackgroundWidget(
+    return ScaffoldManager(
       child: Scaffold(
-        backgroundColor: Colors.transparent,
-        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(165, 218, 249, 1),
           title: const Center(
@@ -40,6 +38,8 @@ class AddChildScreen extends StatelessWidget {
             ),
           ),
         ),
+        backgroundColor: Colors.transparent,
+        resizeToAvoidBottomInset: false,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
@@ -58,8 +58,8 @@ class AddChildScreen extends StatelessWidget {
               MyTextField(
                   onEditingComplete: () => _model?.saveChild(context),
                   onChanged: (value) => _model?.genderBaby = value),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.photo_camera)),
-
+              IconButton(
+                  onPressed: () {}, icon: const Icon(Icons.photo_camera)),
             ],
           ),
         ),

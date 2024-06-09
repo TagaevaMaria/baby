@@ -51,6 +51,12 @@ class LoginScreenVM extends ChangeNotifier {
     Navigator.pushNamed(context, MainNavigationRouteNames.registerScreenDI);
   }
 
+
+  ///проверка. Потом удалить этот экран.
+  void proverka(BuildContext context) async {
+    Navigator.pushNamed(context, MainNavigationRouteNames.proverka);
+  }
+
   ///метод для входа в приложение с помощью google
   Future<void> signInWithGoogle(BuildContext context) async {
     final GoogleSignIn _googleSignIn = GoogleSignIn();

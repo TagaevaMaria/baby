@@ -1,10 +1,8 @@
 import 'package:baby/domin/entity/notes.dart';
+import 'package:baby/library/scaffold_manager/scaffold_manager.dart';
 import 'package:baby/ui/pages/notes/show_notes_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../background_widget.dart';
-
 
 class ShowNotesDI extends StatelessWidget {
   const ShowNotesDI({super.key});
@@ -29,7 +27,7 @@ class ShowNotes extends StatelessWidget {
     final note = ModalRoute.of(context)?.settings.arguments as Note;
     final model = context.watch<ShowNotesVM>();
 
-    return BackgroundWidget(
+    return ScaffoldManager(
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Заметка'),

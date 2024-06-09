@@ -1,4 +1,5 @@
-import 'package:baby/ui/background_widget.dart';
+
+import 'package:baby/library/scaffold_manager/scaffold_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,11 +14,11 @@ class ScreenAchievements extends StatefulWidget {
 class _ScreenAchievementsState extends State<ScreenAchievements> {
   @override
   Widget build(BuildContext context) {
-    return BackgroundWidget(
+    return ScaffoldManager(
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Color.fromRGBO(165, 218, 249, 1),
+          backgroundColor: const Color.fromRGBO(165, 218, 249, 1),
         ),
         body: SingleChildScrollView(
           child:
@@ -102,7 +103,7 @@ class _ScreenAchievementsState extends State<ScreenAchievements> {
       context: context,
       builder: (BuildContext context) => Container(
         height: 216,
-        padding: EdgeInsets.only(top: 6.0),
+        padding: const EdgeInsets.only(top: 6.0),
         margin: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom,
         ),
@@ -119,35 +120,6 @@ class _ScreenAchievementsState extends State<ScreenAchievements> {
         ),
       ),
     );
-
-    /*
-    1) Получить дату рождения
-    2) Получить выбрвнную дату
-    3) Расчет возраста
-
-    ----------------------------------
-    1) Записывать в память модель ребенка
-       - Имя
-       - Дата рождения
-       - Пол
-       - Достижения
-       - Аллергии
-
-
-     2) Управление состоянием
-      - Запиcь
-      - Чтение
-
-     - Repository - Отправка/ получение данных
-          |
-     - Service - Обработка данных
-          |
-       Управление состояние
-          |
-          UI
-
-     3) DB sqlFlite - ,база данных
-     */
   }
 }
 
