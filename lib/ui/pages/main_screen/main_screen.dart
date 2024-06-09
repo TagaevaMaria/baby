@@ -34,7 +34,8 @@ class MainScreenBody extends StatelessWidget {
       child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            title: Center(child: Text('Имя ребенка как то надо получить')),
+            title:
+                const Center(child: Text('Имя ребенка как то надо получить')),
             backgroundColor: const Color.fromRGBO(165, 218, 249, 1),
           ),
           body: Column(
@@ -49,8 +50,8 @@ class MainScreenBody extends StatelessWidget {
                 onPressed: () => _model?.screenAchievements(context),
                 onPressedTwo: () => _model?.screenDoctors(context),
                 onPressedThree: () => _model?.screenNotes(context),
-                height: MediaQuery.of(context).size.height/5,
-                width: MediaQuery.of(context).size.width/5,
+                height: MediaQuery.of(context).size.height / 7,
+                width: MediaQuery.of(context).size.width / 4,
               ),
               rowWidgets(
                   title: 'Фотографии',
@@ -62,8 +63,8 @@ class MainScreenBody extends StatelessWidget {
                   onPressed: () => _model?.screenPhoto(context),
                   onPressedTwo: () => _model?.screenAllergy(context),
                   onPressedThree: () => _model?.screenHeightWeight(context),
-                  height: MediaQuery.of(context).size.height/5,
-                  width: MediaQuery.of(context).size.width/5),
+                  height: MediaQuery.of(context).size.height / 7,
+                  width: MediaQuery.of(context).size.width / 4),
               rowWidgets(
                   title: 'Прививки',
                   titleTwo: 'Cон',
@@ -74,8 +75,8 @@ class MainScreenBody extends StatelessWidget {
                   onPressed: () {},
                   onPressedTwo: () {},
                   onPressedThree: () {},
-                  height: MediaQuery.of(context).size.height/5,
-                  width: MediaQuery.of(context).size.width/5),
+                  height: MediaQuery.of(context).size.height / 7,
+                  width: MediaQuery.of(context).size.width / 4),
             ],
           )),
     );
