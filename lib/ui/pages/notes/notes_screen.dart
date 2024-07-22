@@ -1,7 +1,7 @@
 import 'package:baby/library/scaffold_manager/scaffold_manager.dart';
+import 'package:baby/ui/navigation/main_navigation_route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../navigation/main_navigation.dart';
 import 'notes_screen_model.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 

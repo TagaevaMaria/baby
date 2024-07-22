@@ -1,9 +1,8 @@
+import 'package:baby/ui/navigation/main_navigation_route_names.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../../../domin/global/toast.dart';
 import '../../../../domin/services/auth.dart';
-import '../../../navigation/main_navigation.dart';
-
 
 
 class RegisterScreenVM extends ChangeNotifier {

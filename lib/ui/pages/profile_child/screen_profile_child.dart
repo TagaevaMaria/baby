@@ -1,28 +1,19 @@
 import 'package:baby/ui/pages/profile_child/screen_profile_child_model.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 import '../../../library/scaffold_manager/scaffold_manager.dart';
 
-class ScreenProfileChild extends StatefulWidget {
+class ScreenProfileChildDI extends StatelessWidget {
+   const ScreenProfileChildDI({super.key});
+
+  @override
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+    create: (BuildContext context) => ScreenProfileChildVM(),
+    child: const ScreenProfileChild());
+}
+
+class ScreenProfileChild extends StatelessWidget {
   const ScreenProfileChild({super.key});
-
-  @override
-  State<ScreenProfileChild> createState() => _ScreenProfileChildState();
-}
-
-class _ScreenProfileChildState extends State<ScreenProfileChild> {
-  final _model = ScreenProfileChildModel();
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenProfileChildModelProvider(
-        model: ScreenProfileChildModel(),
-        child: const ScreenProfileChildBody());
-  }
-}
-
-class ScreenProfileChildBody extends StatelessWidget {
-  const ScreenProfileChildBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +42,8 @@ class ListTileChilds extends StatelessWidget {
       children: <Widget>[
         ListTile(
             leading: const CircleAvatar(
-              child: Text('фото ребенка'),
-              backgroundColor: Colors.red, // Цвет аватара
+              backgroundColor: Colors.red,
+              child: Text('фото ребенка'), // Цвет аватара
             ),
             title: const Text('Имя ребенка'),
             subtitle: const Text('Возраст ребенка'),

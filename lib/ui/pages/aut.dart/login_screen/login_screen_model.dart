@@ -1,10 +1,10 @@
+import 'package:baby/ui/navigation/main_navigation_route_names.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
 import '../../../../domin/global/toast.dart';
 import '../../../../domin/services/auth.dart';
-import '../../../navigation/main_navigation.dart';
+
 
 
 
@@ -31,7 +31,7 @@ class LoginScreenVM extends ChangeNotifier {
 
     if (user != null) {
       showToast(message: 'Вы успешно вошли!');
-      Navigator.pushNamed(context, MainNavigationRouteNames.mainScreen);
+      Navigator.pushNamed(context, MainNavigationRouteNames.mainScreenDI);
     } else {
       showToast(message: 'Произошла ошибка');
     }
@@ -76,7 +76,7 @@ class LoginScreenVM extends ChangeNotifier {
         );
 
         await _firebaseAuth.signInWithCredential(credential);
-        Navigator.pushNamed(context, MainNavigationRouteNames.mainScreen);
+        Navigator.pushNamed(context, MainNavigationRouteNames.mainScreenDI);
       }
     } catch (e) {
       showToast(message: 'произошла ошибка $e');

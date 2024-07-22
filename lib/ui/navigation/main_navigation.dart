@@ -1,9 +1,12 @@
-import 'package:baby/screens%20registration/add_child/add_child.dart';
+import 'package:baby/main.dart';
+import 'package:baby/ui/navigation/main_navigation_route_names.dart';
+import 'package:baby/ui/pages/add_child/add_child.dart';
 import 'package:baby/ui/pages/aut.dart/login_screen/login_screen.dart';
 import 'package:baby/ui/pages/aut.dart/register/register_screen.dart';
 import 'package:baby/ui/pages/aut.dart/reset_password_screen.dart';
 import 'package:baby/ui/pages/aut.dart/successfully_registered/successfully_registered_screen.dart';
 import 'package:baby/ui/pages/main_screen/main_screen.dart';
+import 'package:baby/ui/pages/main_screen/main_screen_model.dart';
 import 'package:baby/ui/pages/notes/new_notes_screen.dart';
 import 'package:baby/ui/pages/notes/notes_screen.dart';
 import 'package:baby/ui/pages/notes/show_notes.dart';
@@ -15,38 +18,19 @@ import 'package:baby/ui/pages/screen_allergy/screen_allergy.dart';
 import 'package:baby/ui/pages/screen_doctors/screen_doctors.dart';
 import 'package:baby/ui/pages/screen_photo/screen_photo.dart';
 import 'package:flutter/material.dart';
-
 import '../pages/proverka.dart';
 
 
+class MainNavigation implements MyAppNavigation {
 
-class MainNavigationRouteNames {
-  static const loginScreenDI = '/';
-  static const screenAchievements = '/screen_achievements';
-  static const screenDoctors = '/screen_doctors';
-  static const notesScreenDI = '/notes_screen_DI';
-  static const screenPhoto = '/screen_photo';
-  static const screenAllergy = '/screen_allergy';
-  static const screenHeightWeight = '/screen_height_weight';
-  static const indicatorCalendarWeight = '/indicator_calendar_weight';
-  static const photoByMons = '/photo_by_mons';
-  static const addChild = '/add_child';
-  static const screenProfileChild = '/screen_profile_child';
-  static const resetPassword = '/reset_password';
-  static const mainScreen = '/main_screen';
-  static const successfullyRegisteredScreenDI = '/successfully_registered_screen_DI';
-  static const registerScreenDI = '/register_screen_DI';
-  static const newNoteScreenDI = '/new_note_screen_DI';
-  static const showNotesDI = '/show_notes_DI';
-  static const proverka = '/proverka';
-}
-
-
-class MainNavigation {
+ const  MainNavigation();
+  @override
   final initialRoute = MainNavigationRouteNames.loginScreenDI;
-  final routes = <String, Widget Function(BuildContext)>{
-    MainNavigationRouteNames.registerScreenDI: (context) => const RegisterScreenDI(),
-    MainNavigationRouteNames.mainScreen: (context) => const MainScreen(),
+  @override
+  Map <String, Widget Function(BuildContext)> get routes => {
+    MainNavigationRouteNames.registerScreenDI: (context) =>
+        const RegisterScreenDI(),
+    MainNavigationRouteNames.mainScreenDI: (context) =>   MainScreenDI(model: MainScreenModelVM(),),
     MainNavigationRouteNames.screenAchievements: (context) =>
         const ScreenAchievements(),
     MainNavigationRouteNames.screenDoctors: (context) => const ScreenDoctors(),
@@ -57,15 +41,16 @@ class MainNavigation {
         const ScreenHeightWeight(),
     MainNavigationRouteNames.indicatorCalendarWeight: (context) =>
         const IndicatorCalendarWeight(),
-    MainNavigationRouteNames.addChild: (context) => const AddChild(),
+    MainNavigationRouteNames.addChild: (context) => const AddChildDI(),
     MainNavigationRouteNames.screenProfileChild: (context) =>
-        const ScreenProfileChild(),
+        const ScreenProfileChildDI(),
     MainNavigationRouteNames.resetPassword: (context) => const ResetPassword(),
     MainNavigationRouteNames.loginScreenDI: (context) => const LoginScreenDI(),
-    MainNavigationRouteNames.successfullyRegisteredScreenDI: (context) => const SuccessfullyRegisteredScreenDI(),
-    MainNavigationRouteNames.newNoteScreenDI: (context) => const NewNoteScreenDI(),
+    MainNavigationRouteNames.successfullyRegisteredScreenDI: (context) =>
+        const SuccessfullyRegisteredScreenDI(),
+    MainNavigationRouteNames.newNoteScreenDI: (context) =>
+        const NewNoteScreenDI(),
     MainNavigationRouteNames.showNotesDI: (context) => const ShowNotesDI(),
     MainNavigationRouteNames.proverka: (context) => const Proverka(),
-
   };
 }

@@ -1,23 +1,18 @@
+import 'package:baby/library/scaffold_manager/scaffold_manager.dart';
+import 'package:baby/ui/theme/style_text_filed.dart';
 import 'package:flutter/material.dart';
-import '../../library/scaffold_manager/scaffold_manager.dart';
-import '../../ui/theme/style_text_filed.dart';
+import 'package:provider/provider.dart';
 import 'add_child_model.dart';
 
 ///класс, который хронит модель.
-class AddChild extends StatefulWidget {
-  const AddChild({super.key});
+class AddChildDI extends StatelessWidget {
+  const AddChildDI({super.key});
 
   @override
-  State<AddChild> createState() => _AddChildState();
-}
-
-class _AddChildState extends State<AddChild> {
-  final _model = AddChildModel();
-
-  @override
-  Widget build(BuildContext context) {
-    return AddChildModelProvider(model: _model, child: const AddChildScreen());
-  }
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+        create: (context) => AddChildVM(),
+        child: const AddChildScreen(),
+      );
 }
 
 /// вертска экрана.
@@ -26,7 +21,8 @@ class AddChildScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _model = AddChildModelProvider.watch(context)?.model;
+    final modelRead = context.read<AddChildVM>();
+    final modelWatch = context.watch<AddChildVM>();
     return ScaffoldManager(
       child: Scaffold(
         appBar: AppBar(
@@ -47,17 +43,17 @@ class AddChildScreen extends StatelessWidget {
               const SizedBox(height: 25),
               MyText(text: 'Имя малыша'),
               MyTextField(
-                onChanged: (value) => _model?.nameBaby = value,
-                onEditingComplete: () => _model?.saveChild(context),
+                onChanged: (value) => modelWatch.nameBaby = value,
+                onEditingComplete: () => modelWatch.saveChild(context),
               ),
               MyText(text: 'Дата рождения'),
               MyTextField(
-                  onEditingComplete: () => _model?.saveChild(context),
-                  onChanged: (value) => _model?.dataBaby = value),
+                  onEditingComplete: () => modelWatch.saveChild(context),
+                  onChanged: (value) => modelWatch.dataBaby = value),
               MyText(text: 'Пол'),
               MyTextField(
-                  onEditingComplete: () => _model?.saveChild(context),
-                  onChanged: (value) => _model?.genderBaby = value),
+                  onEditingComplete: () => modelWatch.saveChild(context),
+                  onChanged: (value) => modelWatch.genderBaby = value),
               IconButton(
                   onPressed: () {}, icon: const Icon(Icons.photo_camera)),
             ],
@@ -65,10 +61,14 @@ class AddChildScreen extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton.small(
           backgroundColor: Colors.white,
-          onPressed: () => _model?.saveChild(context),
+          onPressed: () => modelRead.saveChild(context),
           child: const Icon(Icons.check),
         ),
       ),
     );
   }
 }
+
+
+
+
